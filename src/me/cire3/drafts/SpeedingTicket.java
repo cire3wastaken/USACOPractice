@@ -1,6 +1,7 @@
 package me.cire3.drafts;
 
 import me.cire3.Kattio;
+import me.cire3.MutablePair;
 import me.cire3.Pair;
 
 import java.io.IOException;
@@ -10,18 +11,18 @@ public class SpeedingTicket {
         Kattio io = new Kattio("problems/speedingticket/speedingticket");
 
         // segment to speed
-        Pair<Integer, Integer>[] segmentsToSpeedLimit = new Pair[io.nextInt()];
-        Pair<Integer, Integer>[] segmentsToBessieSpeed = new Pair[io.nextInt()];
+        MutablePair<Integer, Integer>[] segmentsToSpeedLimit = new MutablePair[io.nextInt()];
+        MutablePair<Integer, Integer>[] segmentsToBessieSpeed = new MutablePair[io.nextInt()];
 
         for (int i = 0; i < segmentsToSpeedLimit.length; i++)
-            segmentsToSpeedLimit[i] = new Pair<>(io.nextInt(), io.nextInt());
+            segmentsToSpeedLimit[i] = new MutablePair<>(io.nextInt(), io.nextInt());
 
         for (int i = 0; i < segmentsToBessieSpeed.length; i++)
-            segmentsToBessieSpeed[i] = new Pair<>(io.nextInt(), io.nextInt());
+            segmentsToBessieSpeed[i] = new MutablePair<>(io.nextInt(), io.nextInt());
 
         int worstInfraction = 0;
 
-        Pair<Integer, Integer> activeBessie, activeSpeed;
+        MutablePair<Integer, Integer> activeBessie, activeSpeed;
 
         int bessieIndex = 0;
         int speedIndex = 0;
@@ -30,17 +31,29 @@ public class SpeedingTicket {
             if (bessieIndex == segmentsToBessieSpeed.length && speedIndex == segmentsToSpeedLimit.length)
                 break;
 
+            if (bessieIndex > segmentsToBessieSpeed.length || speedIndex > segmentsToSpeedLimit.length)
+                throw new RuntimeException("wtf happened");
+
             activeSpeed = segmentsToSpeedLimit[speedIndex];
             activeBessie = segmentsToBessieSpeed[bessieIndex];
 
-            Pair<Integer, Integer> firstToExpire = Math.min(activeBessie.getFirst(), activeSpeed.getFirst()) == activeSpeed.getFirst() ? activeSpeed : activeBessie;
+            MutablePair<Integer, Integer> firstToExpire = Math.min(activeBessie.getFirst(), activeSpeed.getFirst()) == activeSpeed.getFirst() ? activeSpeed : activeBessie;
 
-            if (firstToExpire.equals(activeBessie))
+            if (firstToExpire.equals(activeBessie)) {
+                segmentsToBessieSpeed[bessieIndex] = activeBessie.setFirst(activeBessie.getFirst() - firstToExpire.getFirst());
                 bessieIndex++;
-            else
+            }
+            else {
+                segmentsToSpeedLimit[speedIndex] = activeSpeed.setFirst(activeSpeed.getFirst() - firstToExpire.getFirst());
                 speedIndex++;
+            }
 
             worstInfraction = Math.max(worstInfraction, activeBessie.getSecond() - activeSpeed.getSecond());
         }
+
+        System.out.println(worstInfraction);
+
+        io.println(worstInfraction);
+        io.close();
     }
 }

@@ -1,8 +1,8 @@
 package me.cire3;
 
 public class Pair<V, K> {
-    private V first;
-    private K second;
+    protected V first;
+    protected K second;
 
     public Pair(V first, K second) {
         this.first = first;
