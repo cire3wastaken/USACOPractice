@@ -1,4 +1,4 @@
-package me.cire3.finalprograms;
+
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class ShellGameBronze2019JanuaryProblem1 {
-    public static boolean[] shells = new boolean[3];
+    public static boolean[] shells;
     public static void main(String[] args) throws IOException {
-        long beginMS = System.currentTimeMillis();
-
         int maxPoints = -1;
         Kattio io = new Kattio("problems/shellgame/shell");
         int maxSwaps = io.nextInt();
@@ -26,9 +24,13 @@ public class ShellGameBronze2019JanuaryProblem1 {
             guesses.add(guess);
         }
 
+        shells = new boolean[3];
+
         for (int i = 0; i < 3; i++) {
             int points = 0;
-            shells[0] = shells[1] = shells[2] = false;
+
+            for (int index = 0; index < 3; index++) shells[index] = false;
+
             shells[i] = true;
 
             for (int k = 0; k < maxSwaps; k++) {
@@ -50,20 +52,12 @@ public class ShellGameBronze2019JanuaryProblem1 {
 
         io.println(maxPoints);
         io.close();
-
-        System.out.println(System.currentTimeMillis() - beginMS);
     }
 
     private static class Kattio extends PrintWriter {
         private BufferedReader r;
         private StringTokenizer st;
-        // standard input
-        public Kattio() { this(System.in, System.out); }
-        public Kattio(InputStream i, OutputStream o) {
-            super(o);
-            r = new BufferedReader(new InputStreamReader(i));
-        }
-        // USACO-style file input
+
         public Kattio(String problemName) throws IOException {
             super(problemName + ".out");
             r = new BufferedReader(new FileReader(problemName + ".in"));
@@ -78,8 +72,6 @@ public class ShellGameBronze2019JanuaryProblem1 {
             return null;
         }
         public int nextInt() { return Integer.parseInt(next()); }
-        public double nextDouble() { return Double.parseDouble(next()); }
-        public long nextLong() { return Long.parseLong(next()); }
     }
 
     private static class Pair<V, K> {

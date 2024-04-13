@@ -1,4 +1,4 @@
-package me.cire3.finalprograms;
+package me.cire3.finalprograms.programs;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -34,12 +34,6 @@ public class MixingMilkBronze2018DecemberProblem1 {
     private static class Kattio extends PrintWriter {
         private final BufferedReader r;
         private StringTokenizer st;
-        // standard input
-        public Kattio() { this(System.in, System.out); }
-        public Kattio(InputStream i, OutputStream o) {
-            super(o);
-            r = new BufferedReader(new InputStreamReader(i));
-        }
         // USACO-style file input
         public Kattio(String problemName) throws IOException {
             super(problemName + ".out");
@@ -55,7 +49,5 @@ public class MixingMilkBronze2018DecemberProblem1 {
             return null;
         }
         public int nextInt() { return Integer.parseInt(next()); }
-        public double nextDouble() { return Double.parseDouble(next()); }
-        public long nextLong() { return Long.parseLong(next()); }
     }
 }
