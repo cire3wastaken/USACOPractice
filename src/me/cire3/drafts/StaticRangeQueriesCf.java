@@ -1,0 +1,37 @@
+package me.cire3.drafts;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class StaticRangeQueriesCf {
+    public static void begin() throws IOException {
+        int[] a = new int[(int) 2e5];
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream("5 5\n3 7 2\n1 10 4\n1 6 10\n0 4 10\n6 7 1\n5 7\n0 2\n5 9\n1 6\n4 9".getBytes())));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int q = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < n; i++) {
+            StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+            int l = Integer.parseInt(tokenizer.nextToken());
+            int r = Integer.parseInt(tokenizer.nextToken());
+            int v = Integer.parseInt(tokenizer.nextToken());
+            for (int j = l; j < r; j++) {
+                a[j] += v;
+            }
+        }
+        for (int i = 0; i < q; i++) {
+            StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+            int l = Integer.parseInt(tokenizer.nextToken());
+            int r = Integer.parseInt(tokenizer.nextToken());
+            int value = 0;
+            for (int j = l; j < r; j++) {
+                value += a[j];
+            }
+            System.out.println(value);
+        }
+    }
+}

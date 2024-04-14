@@ -1,16 +1,15 @@
-package me.cire3.drafts;
+package me.cire3.finalprograms.programs;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class LcsOnPermutationsCf {
-    public static void begin() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream("5\n3 2 1 4 5\n1 2 3 4 5".getBytes())));
+public class LcsOnPermutationsCfUsacoGuideProblemC {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
