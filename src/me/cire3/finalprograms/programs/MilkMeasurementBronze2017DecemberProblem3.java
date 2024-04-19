@@ -1,4 +1,4 @@
-//package me.cire3.finalprograms.programs;
+package me.cire3.finalprograms.programs;
 
 import java.io.*;
 import java.util.Arrays;
@@ -52,7 +52,8 @@ public class MilkMeasurementBronze2017DecemberProblem3 {
             if (!Arrays.equals(snapshot, shown))
                 changes++;
         }
-        System.out.println(changes);
+        io.println(changes);
+        io.close();
     }
 
     private static class Kattio extends PrintWriter {
