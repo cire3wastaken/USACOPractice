@@ -42,9 +42,6 @@ public class MilkMeasurementUsaco {
         boolean[] shown = new boolean[3];
         int changes = 0;
 
-        System.out.println(Arrays.toString(bessie));
-        System.out.println(Arrays.toString(mildred));
-        System.out.println(Arrays.toString(elsie));
         for (int i = 0; i < 100; i++) {
             boolean[] snapshot = Arrays.copyOf(shown, 3);
             b += bessie[i];
@@ -56,16 +53,12 @@ public class MilkMeasurementUsaco {
             max = Math.max(m, max);
             max = Math.max(e, max);
 
-            if (b == max)
-                shown[0] = true;
-            if (m == max)
-                shown[1] = true;
-            if (e == max)
-                shown[2] = true;
+            shown[0] = b == max;
+            shown[1] = m == max;
+            shown[2] = e == max;
 
-            if (!Arrays.equals(snapshot, shown)) {
+            if (!Arrays.equals(snapshot, shown))
                 changes++;
-            }
         }
         System.out.println(changes);
     }
