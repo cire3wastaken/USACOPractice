@@ -1,16 +1,14 @@
-package me.cire3.finalprograms.programs;
+//package me.cire3.finalprograms.programs;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class MilkMeasurementBronze2017DecemberProblem3 {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Kattio io = new Kattio("measurement");
 
-        int n = Integer.parseInt(br.readLine());
+        int n = io.nextInt();
         int m = 7, e = 7, b = 7;
 
         // day is the index
@@ -19,17 +17,16 @@ public class MilkMeasurementBronze2017DecemberProblem3 {
         int[] elsie = new int[100];
 
         for (int i = 0; i < n; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int day = Integer.parseInt(st.nextToken()) - 1;
-            switch (st.nextToken()) {
+            int day = io.nextInt() - 1;
+            switch (io.next()) {
                 case "Mildred":
-                    mildred[day] = Integer.parseInt(st.nextToken());
+                    mildred[day] = io.nextInt();
                     break;
                 case "Bessie":
-                    bessie[day] = Integer.parseInt(st.nextToken());
+                    bessie[day] = io.nextInt();
                     break;
                 case "Elsie":
-                    elsie[day] = Integer.parseInt(st.nextToken());
+                    elsie[day] = io.nextInt();
                     break;
             }
         }
@@ -56,5 +53,49 @@ public class MilkMeasurementBronze2017DecemberProblem3 {
                 changes++;
         }
         System.out.println(changes);
+    }
+
+    private static class Kattio extends PrintWriter {
+        private BufferedReader r;
+        private StringTokenizer st;
+
+        // standard input
+        public Kattio() {
+            this(System.in, System.out);
+        }
+
+        public Kattio(InputStream i, OutputStream o) {
+            super(o);
+            r = new BufferedReader(new InputStreamReader(i));
+        }
+
+        // USACO-style file input
+        public Kattio(String problemName) throws IOException {
+            super(problemName + ".out");
+            r = new BufferedReader(new FileReader(problemName + ".in"));
+        }
+
+        // returns null if no more input
+        public String next() {
+            try {
+                while (st == null || !st.hasMoreTokens())
+                    st = new StringTokenizer(r.readLine());
+                return st.nextToken();
+            } catch (Exception e) {
+            }
+            return null;
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        public double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
     }
 }
