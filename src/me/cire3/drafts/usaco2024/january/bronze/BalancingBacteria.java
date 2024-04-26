@@ -6,8 +6,8 @@ import java.util.StringTokenizer;
 // solution is O(n^2)
 public class BalancingBacteria {
     public static void begin() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(("2\n" +
-                "-1 3").getBytes())));
+        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(("5\n" +
+                "1 3 -2 -7 5").getBytes())));
         PrintWriter pw = new PrintWriter(System.out);
 
         int n = Integer.parseInt(br.readLine());
@@ -23,14 +23,15 @@ public class BalancingBacteria {
         }
 
         for (int i = 0; i < n; i++) {
+            originals[i] += sum - diff - (i == 0 ? 0 : originals[i - 1]);
             long original = originals[i];
             if (original == 0)
                 continue;
-            operations += Math.abs(original);
-
-            if (original < 0) {
-
-            }
+            if (original < 0)
+                sum -= original;
+            else diff += original;
         }
+
+        System.out.println(sum + diff);
     }
 }
