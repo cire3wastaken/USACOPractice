@@ -1,4 +1,4 @@
-package me.cire3.drafts.usaco2024.january.bronze.finalized;
+package me.cire3.drafts.usaco2024.january.bronze;
 
 import java.io.*;
 import java.util.StringTokenizer;
