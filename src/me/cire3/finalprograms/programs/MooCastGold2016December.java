@@ -52,7 +52,6 @@ public class MooCastGold2016December {
         // edges implement Comparable, so check compareTo
         Collections.sort(edges);
 
-
         int lastW = 0;
         int numConnected = n;
 
@@ -100,6 +99,19 @@ public class MooCastGold2016December {
         }
         public int compareTo(WeightedEdge e) {
             return weight - e.weight;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            WeightedEdge that = (WeightedEdge) o;
+            return vertexA == that.vertexA && vertexB == that.vertexB && weight == that.weight;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(vertexA, vertexB, weight);
         }
     }
 }
