@@ -43,8 +43,6 @@ public class LogicalMoos {
             for (int j = l; j <= r; j++) {
                 afterQuery.remove(j - 1);
             }
-
-
         }
     }
 
