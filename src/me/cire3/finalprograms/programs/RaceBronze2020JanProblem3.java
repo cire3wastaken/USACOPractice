@@ -1,4 +1,4 @@
-//package me.cire3.finalprograms.programs;
+package me.cire3.finalprograms.programs;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -13,6 +13,8 @@ public class RaceBronze2020JanProblem3 {
         for (int i = 0; i < n; i++) {
             solve(k, Long.parseLong(br.readLine()), pw);
         }
+        pw.close();
+        br.close();
     }
 
     public static void solve(long k, long x, PrintWriter pw) throws IOException {
