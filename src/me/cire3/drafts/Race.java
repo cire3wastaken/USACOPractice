@@ -1,4 +1,4 @@
-package me.cire3.drafts.usaco2024;
+package me.cire3.drafts;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -27,25 +27,22 @@ public class Race {
         long leftSideSum = 0;
         long rightSideSum = 0;
         long timeSpent = 0;
+        // int will not overflow, since it can store up to 10^9/2 + 1
+        int currentSpeed = 0;
 
-        for (long currentSpeed = 0;; currentSpeed++) {
+        while (leftSideSum + rightSideSum < k) {
+            currentSpeed++;
             leftSideSum += currentSpeed;
             timeSpent++;
 
-            if (leftSideSum + rightSideSum >= k) {
-                System.out.println(timeSpent - 1);
-                return;
-            }
+            if (leftSideSum + rightSideSum >= k)
+                break;
 
             if (currentSpeed >= x) {
                 rightSideSum += currentSpeed;
                 timeSpent++;
-
-                if (leftSideSum + rightSideSum >= k) {
-                    System.out.println(timeSpent - 1);
-                    return;
-                }
             }
         }
+        System.out.println(timeSpent);
     }
 }
