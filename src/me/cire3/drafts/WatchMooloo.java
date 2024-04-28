@@ -28,10 +28,28 @@ public class WatchMooloo {
         int accumCost = 0;
 
         int lastDay = 0;
-        int baseToAdd = 0;
+        int startedDay = 0;
         for (int i = 0; i < n; i++) {
             int day = days[i];
 
+            if (i == 0) {
+                accumCost++;
+                totalK++;
+            } else {
+                int addToAccumCost = (day - startedDay + 1) * (day - startedDay + 2) / 2 - ((lastDay - startedDay + 1) * (lastDay  - startedDay + 2) / 2);
+
+                if (addToAccumCost > k) {
+                    startedDay = day;
+                    totalK++;
+                    accumCost++;
+                } else {
+                    accumCost += addToAccumCost;
+                    totalK += day - lastDay + 1;
+                }
+                lastDay = day;
+            }
         }
+
+        System.out.println(accumCost + totalK);
     }
 }

@@ -3,7 +3,7 @@ package me.cire3.finalprograms.programs;
 import java.io.*;
 import java.util.*;
 
-public class TamingTheHeardBronze2018FebProblem3 {
+public class TamingTheHerdBronze2018FebProblem3 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("taming.in"));
         PrintWriter pw = new PrintWriter(new FileWriter("taming.out"));
@@ -15,10 +15,9 @@ public class TamingTheHeardBronze2018FebProblem3 {
         for (int i = 0; i < n; i++)
             logs[i] = Integer.parseInt(st.nextToken());
 
-        int must = n;
+        int must = 0;
         int lastZero = 0; // 0
         logs[0] = 0;
-        Set<Integer> indexesCounted = new HashSet<>();
         for (int i = 1; i < n; i++) {
             if (logs[i] > 0) {
                 if (i - logs[i] < 0) {
@@ -37,24 +36,20 @@ public class TamingTheHeardBronze2018FebProblem3 {
                     logs[j] = logs[i] + j - i;
                     if (logs[j] == 0)
                         lastZero = j;
-                    if (indexesCounted.add(j))
-                        must--;
                 }
             }
         }
+
+        for (int value : logs)
+            if (value == 0)
+                must++;
 
         int could = 0;
         for (int value : logs)
             if (value == -1)
                 could++;
 
-        if (must == 1) {
-            pw.println(-1);
-            pw.close();
-            return;
-        }
-
-        pw.println((must - 1) + " " + (must + could - 1));
+        pw.println((must) + " " + (must + could));
         br.close();
         pw.close();
     }
