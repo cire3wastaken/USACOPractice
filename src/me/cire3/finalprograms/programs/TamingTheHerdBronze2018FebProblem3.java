@@ -40,14 +40,13 @@ public class TamingTheHerdBronze2018FebProblem3 {
             }
         }
 
-        for (int value : logs)
+        int could = 0;
+        for (int value : logs) {
             if (value == 0)
                 must++;
-
-        int could = 0;
-        for (int value : logs)
             if (value == -1)
                 could++;
+        }
 
         pw.println((must) + " " + (must + could));
         br.close();

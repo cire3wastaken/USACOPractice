@@ -43,14 +43,13 @@ public class TamingTheHerd {
             }
         }
 
-        for (int value : logs)
+        int could = 0;
+        for (int value : logs) {
             if (value == 0)
                 must++;
-
-        int could = 0;
-        for (int value : logs)
             if (value == -1)
                 could++;
+        }
 
         System.out.println(Arrays.toString(logs));
         System.out.println((must) + " " + (must + could));
