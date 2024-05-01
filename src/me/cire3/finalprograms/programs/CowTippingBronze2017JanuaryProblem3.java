@@ -1,18 +1,11 @@
-package me.cire3.drafts;
+package me.cire3.finalprograms.programs;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
 
-public class CowTipping {
-    public static void begin() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(("3\n" +
-                "010\n" +
-                "101\n" +
-                "010").getBytes())));
+public class CowTippingBronze2017JanuaryProblem3 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("cowtip.in"));
+        PrintWriter pw = new PrintWriter(new FileWriter("cowtip.out"));
 
         int n = Integer.parseInt(br.readLine());
 
@@ -38,6 +31,7 @@ public class CowTipping {
             }
         }
 
-        System.out.println(flips);
+        pw.println(flips);
+        pw.close();
     }
 }
