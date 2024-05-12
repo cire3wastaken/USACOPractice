@@ -49,8 +49,9 @@ public class EvenMoreOddPhotosBronze2021JanProblem2 {
                             odds.pop();
                             solution.add(List.of(v1, v2));
                         } else {
-                            List<Integer> lastOdd = solution.remove(solution.size() - 1);
-                            List<Integer> lastEven = solution.remove(solution.size() - 1);
+                            // no UnsupportedOperationException if u create a new modifiable array
+                            List<Integer> lastOdd = new ArrayList<>(solution.remove(solution.size() - 1));
+                            List<Integer> lastEven = new ArrayList<>(solution.remove(solution.size() - 1));
                             // add lastOdd and value into lastEven, and append into array
                             List<Integer> coalescedList = new ArrayList<>(lastEven);
                             coalescedList.addAll(lastOdd);
@@ -68,7 +69,7 @@ public class EvenMoreOddPhotosBronze2021JanProblem2 {
                     solution.add(List.of(value));
                 } else {
                     // we cant make odds from evens
-                    List<Integer> temp = solution.remove(solution.size() - 1);
+                    List<Integer> temp = new ArrayList<>(solution.remove(solution.size() - 1));
                     Integer[] tempArr = new Integer[evens.size()];
                     evens.toArray(tempArr);
                     for (Integer integer : tempArr) {

@@ -1,19 +1,11 @@
 package me.cire3.drafts;
 
-import me.cire3.finalprograms.programs.EvenMoreOddPhotosBronze2021JanProblem2;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class EvenMoreOddPhotos {
     public static void begin() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(
-                ("7\n" +
-                        "11 2 17 13 1 15 3").getBytes()
-        )));
+        BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(("1\n" + "13").getBytes())));
 
         int n = Integer.parseInt(br.readLine());
 
@@ -55,8 +47,9 @@ public class EvenMoreOddPhotos {
                             odds.pop();
                             solution.add(List.of(v1, v2));
                         } else {
-                            List<Integer> lastOdd = solution.remove(solution.size() - 1);
-                            List<Integer> lastEven = solution.remove(solution.size() - 1);
+                            // no UnsupportedOperationException if u create a new modifiable array
+                            List<Integer> lastOdd = new ArrayList<>(solution.remove(solution.size() - 1));
+                            List<Integer> lastEven = new ArrayList<>(solution.remove(solution.size() - 1));
                             // add lastOdd and value into lastEven, and append into array
                             List<Integer> coalescedList = new ArrayList<>(lastEven);
                             coalescedList.addAll(lastOdd);
@@ -74,7 +67,7 @@ public class EvenMoreOddPhotos {
                     solution.add(List.of(value));
                 } else {
                     // we cant make odds from evens
-                    List<Integer> temp = solution.remove(solution.size() - 1);
+                    List<Integer> temp = new ArrayList<>(solution.remove(solution.size() - 1));
                     Integer[] tempArr = new Integer[evens.size()];
                     evens.toArray(tempArr);
                     for (Integer integer : tempArr) {
@@ -88,5 +81,53 @@ public class EvenMoreOddPhotos {
         }
 
         System.out.println(solution.size());
+    }
+
+    public static void stressTest() throws IOException {
+        String testcase = "";
+        BufferedReader br = null;
+
+        try {
+            for (int m = 0; m < 100000; m++) {
+                testcase = "";
+                Random random = new Random();
+
+                int n = random.nextInt(1001);
+                if (n == 0)
+                    continue;
+
+                testcase += n;
+                testcase += "\n";
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < n; i++) {
+                    int randomValue = random.nextInt(101);
+                    if ((i & 1) == 0) {
+                        if ((randomValue & 1) == 1) {
+                            randomValue--;
+                        }
+                    } else if ((randomValue & 1) == 0) {
+                        randomValue--;
+                    }
+                    builder.append(randomValue).append(" ");
+                }
+                testcase += builder.toString().trim();
+
+                br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(testcase.getBytes())));
+                br.readLine();
+                solve(br, n);
+            }
+        } catch (Exception e) {
+            if (br != null)
+                br.close();
+
+            System.out.println("Failed Testcase:");
+            System.out.println(testcase);
+            PrintWriter pw = new PrintWriter("failed_testcase.txt");
+            pw.println(testcase);
+            pw.close();
+            return;
+        }
+        System.out.println("Passed all test cases");
     }
 }
