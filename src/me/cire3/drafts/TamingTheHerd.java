@@ -22,6 +22,9 @@ public class TamingTheHerd {
 
         int must = 0;
         int lastZero = 0; // 0
+        if (logs[0] > 0)
+            System.out.println(-1);
+
         logs[0] = 0;
         for (int i = 1; i < n; i++) {
             if (logs[i] > 0) {

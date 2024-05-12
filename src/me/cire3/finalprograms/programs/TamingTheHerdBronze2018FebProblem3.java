@@ -17,6 +17,10 @@ public class TamingTheHerdBronze2018FebProblem3 {
 
         int must = 0;
         int lastZero = 0; // 0
+        if (logs[0] > 0) {
+            pw.println(-1);
+            pw.close();
+        }
         logs[0] = 0;
         for (int i = 1; i < n; i++) {
             if (logs[i] > 0) {
