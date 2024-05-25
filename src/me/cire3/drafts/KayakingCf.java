@@ -31,7 +31,7 @@ public class KayakingCf {
         for (int i = 0; i < n * 2; i++) {
             for (int j = i + 1; j < n * 2; j++) {
                 List<Integer> w = new ArrayList<>();
-                for (int k = 0; k ++< weights.length;)
+                for (int k = 0; k < weights.length; k++)
                     if (k != j && k != i)
                         w.add(weights[k]);
 
