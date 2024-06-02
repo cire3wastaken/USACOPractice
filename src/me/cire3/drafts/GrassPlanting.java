@@ -59,7 +59,7 @@ public class GrassPlanting {
 
             types[n] = type;
 
-            dfs(node, n);
+            dfs(n, node);
 
             type++;
         }
