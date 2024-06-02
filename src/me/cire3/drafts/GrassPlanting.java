@@ -51,7 +51,11 @@ public class GrassPlanting {
             while (type == types[node] || type == types[prevNode])
                 type++;
 
-            types[n] =
+            types[n] = type;
+
+            dfs(n, node);
+
+            type++;
         }
     }
 }
