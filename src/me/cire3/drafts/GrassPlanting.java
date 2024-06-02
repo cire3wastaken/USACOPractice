@@ -12,7 +12,7 @@ public class GrassPlanting {
     static boolean[] visited;
     static int[] types;
     static List<Integer>[] neighbors;
-    public void begin() throws IOException {
+    public static void begin() throws IOException {
         BufferedReader br = new BufferedReader(new StringReader("4\n" +
                 "1 2\n" +
                 "4 3\n" +
@@ -38,6 +38,12 @@ public class GrassPlanting {
         }
 
         dfs(0, 0);
+
+        int mType = 0;
+        for (int t : types)
+            mType = Math.max(mType, t);
+
+        System.out.println(mType);
     }
 
 
@@ -53,7 +59,7 @@ public class GrassPlanting {
 
             types[n] = type;
 
-            dfs(n, node);
+            dfs(node, n);
 
             type++;
         }
