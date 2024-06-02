@@ -36,5 +36,22 @@ public class GrassPlanting {
             neighbors[first].add(second);
             neighbors[second].add(first);
         }
+
+        dfs(0, 0);
+    }
+
+
+    private static void dfs(int node, int prevNode) {
+        int type = 1;
+
+        for (int n : neighbors[node]) {
+            if (n == prevNode)
+                continue;
+
+            while (type == types[node] || type == types[prevNode])
+                type++;
+
+            types[n] =
+        }
     }
 }
