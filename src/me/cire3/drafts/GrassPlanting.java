@@ -12,10 +12,62 @@ public class GrassPlanting {
     static int[] types;
     static List<Integer>[] neighbors;
     public static void begin() throws IOException {
-        System.out.println(beginImpl("4\n" +
-                "1 2\n" +
-                "4 3\n" +
-                "2 3"));
+        System.out.println(beginImpl("56\n" +
+                "8 33\n" +
+                "40 52\n" +
+                "24 1\n" +
+                "34 31\n" +
+                "8 34\n" +
+                "31 46\n" +
+                "41 43\n" +
+                "0 30\n" +
+                "11 55\n" +
+                "3 46\n" +
+                "1 30\n" +
+                "38 24\n" +
+                "55 32\n" +
+                "35 9\n" +
+                "10 2\n" +
+                "36 12\n" +
+                "2 10\n" +
+                "44 37\n" +
+                "46 55\n" +
+                "8 0\n" +
+                "44 26\n" +
+                "48 50\n" +
+                "35 25\n" +
+                "22 32\n" +
+                "55 10\n" +
+                "42 4\n" +
+                "48 45\n" +
+                "31 46\n" +
+                "16 50\n" +
+                "38 46\n" +
+                "47 9\n" +
+                "37 7\n" +
+                "53 48\n" +
+                "51 23\n" +
+                "43 39\n" +
+                "3 44\n" +
+                "14 31\n" +
+                "50 49\n" +
+                "41 49\n" +
+                "6 13\n" +
+                "5 36\n" +
+                "14 52\n" +
+                "40 14\n" +
+                "0 39\n" +
+                "48 3\n" +
+                "19 7\n" +
+                "26 11\n" +
+                "41 15\n" +
+                "52 46\n" +
+                "48 47\n" +
+                "3 51\n" +
+                "38 29\n" +
+                "41 6\n" +
+                "39 30\n" +
+                "54 23"));
     }
 
     private static String beginImpl(String testcase) throws IOException {
@@ -76,13 +128,13 @@ public class GrassPlanting {
                 testcase = "";
                 Random random = new Random();
 
-                int n = random.nextInt(1001);
+                int n = random.nextInt(1000) + 1;
                 testcase += n;
 
                 for (int i = 1; i < n; i++) {
                     testcase += "\n";
-                    int random1 = random.nextInt(n);
-                    int random2 = random.nextInt(n);
+                    int random1 = random.nextInt(n - 1) + 1;
+                    int random2 = random.nextInt(n - 1) + 1;
 
                     if (random1 == random2) {
                         if (random2 < n - 1)
