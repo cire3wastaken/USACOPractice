@@ -13,6 +13,10 @@ public class GrassPlanting {
     static int[] types;
     static List<Integer>[] neighbors;
     public static void begin() throws IOException {
+        System.out.println(beginImpl());
+    }
+
+    private static String beginImpl() throws IOException {
         BufferedReader br = new BufferedReader(new StringReader("4\n" +
                 "1 2\n" +
                 "4 3\n" +
@@ -43,7 +47,7 @@ public class GrassPlanting {
         for (int t : types)
             mType = Math.max(mType, t);
 
-        System.out.println(mType);
+        return mType + "";
     }
 
 
