@@ -33,8 +33,8 @@ public class TheGreatRevegetationBronze2019FebruaryProblem2 {
 
         int[] colors = new int[n];
         colors[0] = 1;
-        for (int i = 0; i < n; i++) {
-            for (int c = 1; c < 4; c++) {
+        for (int i = 1; i < n; i++) {
+            for (int c = 1; c <= 4; c++) {
                 boolean invalid = false;
 
                 for (int j : neighbors[i])
