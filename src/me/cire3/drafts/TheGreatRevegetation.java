@@ -9,36 +9,13 @@ import java.util.StringTokenizer;
 
 public class TheGreatRevegetation {
     public static void begin() throws IOException {
-        BufferedReader br = new BufferedReader(new StringReader("25 29\n" +
-                "23 4\n" +
-                "12 16\n" +
-                "7 9\n" +
-                "20 25\n" +
-                "4 22\n" +
-                "8 5\n" +
-                "4 20\n" +
-                "21 19\n" +
-                "9 16\n" +
-                "16 25\n" +
-                "22 24\n" +
-                "22 2\n" +
-                "5 14\n" +
-                "17 1\n" +
-                "19 1\n" +
-                "10 15\n" +
-                "25 15\n" +
-                "13 7\n" +
-                "19 17\n" +
-                "10 12\n" +
-                "8 2\n" +
-                "1 8\n" +
-                "9 21\n" +
-                "5 13\n" +
-                "20 18\n" +
-                "6 15\n" +
-                "24 12\n" +
-                "6 2\n" +
-                "24 7\n"));
+        BufferedReader br = new BufferedReader(new StringReader("5 6\n" +
+                "4 1\n" +
+                "4 2\n" +
+                "4 3\n" +
+                "2 5\n" +
+                "1 2\n" +
+                "1 5"));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
