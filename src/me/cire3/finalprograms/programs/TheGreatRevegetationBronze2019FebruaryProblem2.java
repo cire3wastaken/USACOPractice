@@ -16,7 +16,7 @@ public class TheGreatRevegetationBronze2019FebruaryProblem2 {
 
         List<Integer>[] neighbors = new List[n];
 
-        for (int i = 0; i < m; i++)
+        for (int i = 0; i < n; i++)
             neighbors[i] = new ArrayList<>();
 
         for (int i = 0; i < m; i++) {
