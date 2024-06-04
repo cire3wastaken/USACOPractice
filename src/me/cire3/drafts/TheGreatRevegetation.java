@@ -39,8 +39,9 @@ public class TheGreatRevegetation {
         }
 
         int[] colors = new int[n];
+        colors[0] = 1;
         for (int i = 0; i < n; i++) {
-            for (int c = 0; c < 4; c++) {
+            for (int c = 1; c < 4; c++) {
                 boolean invalid = false;
 
                 for (int j : neighbors[i])
