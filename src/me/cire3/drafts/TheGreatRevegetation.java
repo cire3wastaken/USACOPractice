@@ -20,7 +20,7 @@ public class TheGreatRevegetation {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        List[] neighbors = new List[n];
+        List<Integer>[] neighbors = new List[n];
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
@@ -33,5 +33,26 @@ public class TheGreatRevegetation {
             neighbors[x].add(y);
             neighbors[y].add(x);
         }
+
+        int[] colors = new int[n];
+        for (int i = 0; i < n; i++) {
+            for (int c = 0; c < 4; c++) {
+                boolean invalid = false;
+
+                for (int j : neighbors[i])
+                    if (colors[j] == c) {
+                        invalid = true;
+                        break;
+                    }
+
+                if (!invalid) {
+                    colors[i] = c;
+                    break;
+                }
+            }
+        }
+
+        for (int color : colors)
+            System.out.print(color);
     }
 }
