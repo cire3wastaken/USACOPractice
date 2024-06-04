@@ -3,6 +3,7 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -21,6 +22,9 @@ public class TheGreatRevegetation {
         int m = Integer.parseInt(st.nextToken());
 
         List<Integer>[] neighbors = new List[n];
+
+        for (int i = 0; i < m; i++)
+            neighbors[i] = new ArrayList<>();
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
