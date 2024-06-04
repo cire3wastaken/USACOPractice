@@ -26,6 +26,10 @@ public class TheGreatRevegetation {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
+
+            x--;
+            y--;
+
             neighbors[x].add(y);
             neighbors[y].add(x);
         }
