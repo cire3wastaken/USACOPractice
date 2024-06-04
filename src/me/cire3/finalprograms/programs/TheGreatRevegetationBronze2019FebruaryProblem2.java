@@ -1,6 +1,7 @@
 package me.cire3.finalprograms.programs;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -14,6 +15,9 @@ public class TheGreatRevegetationBronze2019FebruaryProblem2 {
         int m = Integer.parseInt(st.nextToken());
 
         List<Integer>[] neighbors = new List[n];
+
+        for (int i = 0; i < m; i++)
+            neighbors[i] = new ArrayList<>();
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
