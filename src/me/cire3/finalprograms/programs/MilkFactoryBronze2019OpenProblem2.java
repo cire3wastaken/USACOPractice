@@ -19,18 +19,18 @@ public class MilkFactoryBronze2019OpenProblem2 {
 
         br.close();
 
-        int index = -2;
+        int index = -1;
         for (int i = 0; i < n; i++) {
             if (outgoingPaths[i] == 0) {
-                if (index != -2) {
-                    index = -2;
+                if (index != -1) {
+                    index = -1;
                     break;
                 }
                 index = i;
             }
         }
 
-        pw.println(index + 1);
+        pw.println(index == -1 ? -1 : index + 1);
         pw.close();
     }
 }
