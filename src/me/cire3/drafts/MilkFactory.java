@@ -17,7 +17,7 @@ public class MilkFactory {
 
         for (int i = 0; i < n - 1; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            outgoingPaths[Integer.parseInt(st.nextToken())]++;
+            outgoingPaths[Integer.parseInt(st.nextToken()) - 1]++;
         }
 
         br.close();
