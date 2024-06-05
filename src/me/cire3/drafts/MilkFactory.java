@@ -3,7 +3,6 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class MilkFactory {
@@ -22,5 +21,18 @@ public class MilkFactory {
         }
 
         br.close();
+
+        int index = -1;
+        for (int i = 0; i < n; i++) {
+            if (outgoingPaths[i] == 0) {
+                if (index != -1) {
+                    index = -1;
+                    break;
+                }
+                index = i;
+            }
+        }
+
+        System.out.println(index);
     }
 }
