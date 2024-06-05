@@ -22,17 +22,17 @@ public class MilkFactory {
 
         br.close();
 
-        int index = -1;
+        int index = -2;
         for (int i = 0; i < n; i++) {
             if (outgoingPaths[i] == 0) {
-                if (index != -1) {
-                    index = -1;
+                if (index != -2) {
+                    index = -2;
                     break;
                 }
                 index = i;
             }
         }
 
-        System.out.println(index);
+        System.out.println(index + 1);
     }
 }
