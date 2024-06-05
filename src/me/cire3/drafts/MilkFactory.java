@@ -20,5 +20,7 @@ public class MilkFactory {
             StringTokenizer st = new StringTokenizer(br.readLine());
             outgoingPaths[Integer.parseInt(st.nextToken())]++;
         }
+
+        br.close();
     }
 }
