@@ -26,13 +26,14 @@ public class GuessTheMaximumCf {
         for (int i = 0; i < t; i++) {
             int n = Integer.parseInt(br.readLine());
             int smallest = Integer.MIN_VALUE;
+            int[] numbers = new int[n];
 
             StringTokenizer st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < n; j++) {
-                int m;
-                if ((m = Integer.parseInt(st.nextToken())) > smallest)
-                    smallest = m;
-            }
+            for (int j = 0; j < n; j++)
+                numbers[j] = Integer.parseInt(st.nextToken());
+
+            for (int j = 0; j < n - 1; j++)
+                smallest = Math.max(smallest, Math.max(numbers[j], numbers[j + 1]));
 
             System.out.println(smallest - 1);
         }
