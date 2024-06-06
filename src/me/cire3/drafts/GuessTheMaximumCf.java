@@ -30,7 +30,7 @@ public class GuessTheMaximumCf {
             StringTokenizer st = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {
                 int m;
-                if ((m = Integer.parseInt(st.nextToken())) < smallest)
+                if ((m = Integer.parseInt(st.nextToken())) > smallest)
                     smallest = m;
             }
         }
