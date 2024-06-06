@@ -24,7 +24,12 @@ public class GuessTheMaximumCf {
         int t = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < t; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            int n = Integer.parseInt(br.readLine());
+            int[] arr = new int[n];
+
+            for (int j = 0; j < n; j++) {
+
+            }
         }
     }
 }
