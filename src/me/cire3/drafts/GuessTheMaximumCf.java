@@ -3,6 +3,7 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.StringTokenizer;
 
 public class GuessTheMaximumCf {
     public static void begin() throws IOException {
@@ -23,7 +24,7 @@ public class GuessTheMaximumCf {
         int n = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < n; i++) {
-
+            StringTokenizer st = new StringTokenizer(br.readLine());
         }
     }
 }
