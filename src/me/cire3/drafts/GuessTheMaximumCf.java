@@ -21,9 +21,9 @@ public class GuessTheMaximumCf {
                 "10\n" +
                 "3 12 9 5 2 3 2 9 8 2\n"));
 
-        int n = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < t; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
         }
     }
