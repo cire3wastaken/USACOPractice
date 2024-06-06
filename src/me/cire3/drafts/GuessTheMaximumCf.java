@@ -21,5 +21,9 @@ public class GuessTheMaximumCf {
                 "3 12 9 5 2 3 2 9 8 2\n"));
 
         int n = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < n; i++) {
+
+        }
     }
 }
