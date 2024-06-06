@@ -27,8 +27,9 @@ public class GuessTheMaximumCf {
             int n = Integer.parseInt(br.readLine());
             int[] arr = new int[n];
 
+            StringTokenizer st = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {
-
+                arr[j] = Integer.parseInt(st.nextToken());
             }
         }
     }
