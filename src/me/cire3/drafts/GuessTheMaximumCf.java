@@ -19,5 +19,7 @@ public class GuessTheMaximumCf {
                 "10 10 10 10 9\n" +
                 "10\n" +
                 "3 12 9 5 2 3 2 9 8 2\n"));
+
+        int n = Integer.parseInt(br.readLine());
     }
 }
