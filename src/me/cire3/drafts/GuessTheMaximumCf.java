@@ -33,6 +33,8 @@ public class GuessTheMaximumCf {
                 if ((m = Integer.parseInt(st.nextToken())) > smallest)
                     smallest = m;
             }
+
+            System.out.println(smallest - 1);
         }
     }
 }
