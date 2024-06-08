@@ -20,7 +20,10 @@ public class XORSequences {
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
             for (int j = 0; j < MAX_ITERATIONS; j++) {
-
+                if ((x & (int) Math.pow(2, j)) != (y & (int) Math.pow(2, j))) {
+                    System.out.println((int)Math.pow(2, j));
+                    break;
+                }
             }
         }
     }
