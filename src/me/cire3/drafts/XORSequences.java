@@ -15,6 +15,9 @@ public class XORSequences {
         int MAX_ITERATIONS = (int) Math.ceil(Math.log(Math.pow(10, 9)) / Math.log(2));
 
         for (int i = 0; i < t; i++) {
+            for (int j = 0; j < MAX_ITERATIONS; j++) {
+
+            }
         }
     }
 }
