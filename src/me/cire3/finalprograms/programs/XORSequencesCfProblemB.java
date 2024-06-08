@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class XORSequencesCfProblemB {
     public static final int MAX_ITERATIONS = (int) Math.ceil(Math.log(Math.pow(10, 9)) / Math.log(2));
-    public static void begin() throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
 
