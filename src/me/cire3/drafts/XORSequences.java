@@ -12,10 +12,9 @@ public class XORSequences {
                 "57 37\n" +
                 "316560849 14570961\n"));
         int t = Integer.parseInt(br.readLine());
-        int j = (int) Math.ceil(Math.log(Math.pow(10, 9)) / Math.log(2));
+        int MAX_ITERATIONS = (int) Math.ceil(Math.log(Math.pow(10, 9)) / Math.log(2));
 
         for (int i = 0; i < t; i++) {
-
         }
     }
 }
