@@ -3,6 +3,7 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.StringTokenizer;
 
 public class XORSequences {
     public static void begin() throws IOException {
@@ -15,6 +16,9 @@ public class XORSequences {
         int MAX_ITERATIONS = (int) Math.ceil(Math.log(Math.pow(10, 9)) / Math.log(2));
 
         for (int i = 0; i < t; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
             for (int j = 0; j < MAX_ITERATIONS; j++) {
 
             }
