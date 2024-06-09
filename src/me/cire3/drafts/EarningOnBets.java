@@ -19,5 +19,7 @@ public class EarningOnBets {
                 "6 3 2\n" +
                 "5\n" +
                 "9 4 6 8 3\n"));
+
+        int t = Integer.parseInt(br.readLine());
     }
 }
