@@ -6,6 +6,6 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        XORSequences.begin();
+        EarningOnBets.begin();
     }
 }
