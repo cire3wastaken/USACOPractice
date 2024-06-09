@@ -21,5 +21,9 @@ public class EarningOnBets {
                 "9 4 6 8 3\n"));
 
         int t = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < t; i++) {
+
+        }
     }
 }
