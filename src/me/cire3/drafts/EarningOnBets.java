@@ -6,6 +6,7 @@ import java.io.StringReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+// FIXME
 public class EarningOnBets {
     public static void begin() throws IOException {
         BufferedReader br = new BufferedReader(new StringReader("6\n" +
