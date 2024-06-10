@@ -33,19 +33,17 @@ public class EarningOnBets {
             for (int j = 0; j < n; j++)
                 lcm = lcm(lcm, arr[j] = Integer.parseInt(st.nextToken()));
 
-            System.out.println(Arrays.toString(arr));
-            System.out.println(lcm);
-
             int totalCoins = 0;
             for (int j = 0; j < n; j++)
                 totalCoins += lcm / arr[j];
 
             if (totalCoins >= lcm) {
-                for (int j = 0; j < n; j++)
-                    System.out.print(arr[j] + " ");
-                System.out.println();
-            } else
                 System.out.println(-1);
+            } else {
+                for (int j = 0; j < n; j++)
+                    System.out.print(lcm / arr[j] + " ");
+                System.out.println();
+            }
         }
     }
 
