@@ -35,12 +35,13 @@ public class EarningOnBets {
             for (int j = 0; j < n; j++)
                 lcm = lcm(lcm, arr[j] = Integer.parseInt(st.nextToken()));
 
-            int a = 0;
+            double a = 0;
             for (int j : arr)
-                a += 1 / j;
+                a += (double) 1 / j;
 
-            if (a >= 1)
+            if (a >= 1) {
                 System.out.println(-1);
+            }
 
             for (int j = 0; j < n; j++)
                 System.out.print(lcm / arr[j] + " ");
