@@ -3,6 +3,7 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.StringTokenizer;
 
 public class EarningOnBets {
     public static void begin() throws IOException {
@@ -23,7 +24,34 @@ public class EarningOnBets {
         int t = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < t; i++) {
+            int n = Integer.parseInt(br.readLine());
+            StringTokenizer st = new StringTokenizer(br.readLine());
 
+            int[] arr = new int[n];
+            int lcm = 1;
+            for (int j = 0; j < n; j++)
+                lcm = lcm(lcm, arr[j] = Integer.parseInt(st.nextToken()));
+
+            int totalCoins = 0;
+            for (int j = 0; j < n; j++)
+                totalCoins += lcm / arr[j];
+
+            if (totalCoins > lcm) {
+                for (int j = 0; j < n; j++)
+                    System.out.print(arr[j] + " ");
+                System.out.println();
+            } else
+                System.out.println(-1);
         }
+    }
+
+    public static int lcm(int a, int b) {
+        while (b != 0) {
+            int mod = a % b;
+            a = b;
+            b = mod;
+        }
+
+        return a;
     }
 }
