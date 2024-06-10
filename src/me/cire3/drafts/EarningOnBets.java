@@ -41,6 +41,7 @@ public class EarningOnBets {
 
             if (a >= 1) {
                 System.out.println(-1);
+                continue;
             }
 
             for (int j = 0; j < n; j++)
