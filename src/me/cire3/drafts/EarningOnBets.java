@@ -3,6 +3,7 @@ package me.cire3.drafts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class EarningOnBets {
@@ -32,11 +33,14 @@ public class EarningOnBets {
             for (int j = 0; j < n; j++)
                 lcm = lcm(lcm, arr[j] = Integer.parseInt(st.nextToken()));
 
+            System.out.println(Arrays.toString(arr));
+            System.out.println(lcm);
+
             int totalCoins = 0;
             for (int j = 0; j < n; j++)
                 totalCoins += lcm / arr[j];
 
-            if (totalCoins > lcm) {
+            if (totalCoins >= lcm) {
                 for (int j = 0; j < n; j++)
                     System.out.print(arr[j] + " ");
                 System.out.println();
@@ -46,12 +50,15 @@ public class EarningOnBets {
     }
 
     public static int lcm(int a, int b) {
+        int c = a;
+        int d = b;
+
         while (b != 0) {
             int mod = a % b;
             a = b;
             b = mod;
         }
 
-        return a;
+        return c * d / a;
     }
 }
