@@ -39,8 +39,10 @@ public class EarningOnBets {
             for (int j : arr)
                 a += 1 / j;
 
-            if (a >= 1)
+            if (a >= 1) {
                 System.out.println(-1);
+                continue;
+            }
 
             for (int j = 0; j < n; j++)
                 System.out.print(lcm / arr[j] + " ");
