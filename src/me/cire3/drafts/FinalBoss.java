@@ -42,14 +42,22 @@ public class FinalBoss {
             st = new StringTokenizer(br.readLine());
             int[] dmgs = new int[n];
             int[] dmgPerTurn = new int[n];
+            int[] cds = new int[n];
+            int[] next = new int[n];
+
+            int lcm = 1;
 
             for (int i = 0; i < n; i++)
                 dmgs[i] = Integer.parseInt(st.nextToken());
 
             st = new StringTokenizer(br.readLine());
             for (int i = 0; i < n; i++) {
-                dmgPerTurn[i] = dmgs[i] / Integer.parseInt(st.nextToken());
-                System.out.println(dmgPerTurn[i]);
+                int turns = Integer.parseInt(st.nextToken());
+
+                lcm = lcm(turns, lcm);
+
+                dmgPerTurn[i] = dmgs[i] / turns;
+                cds[i] = turns;
             }
 
             int totalDamagePerTurn = 0;
@@ -57,7 +65,45 @@ public class FinalBoss {
                 totalDamagePerTurn += dmgPerTurn[i];
             }
 
-            System.out.println((long) Math.ceil((float) h / totalDamagePerTurn));
+            int damagePerCycle = 0;
+            for (int i = 0; i < n; i++) {
+                damagePerCycle += dmgs[i] * lcm;
+            }
+
+            int cycles = (int) Math.floor((float) h / damagePerCycle);
+            int hpLeft = h - cycles * damagePerCycle;
+
+            int turnBegin = cycles * lcm;
+            int turn = cycles * lcm;
+
+            if (cycles != 0)
+                System.arraycopy(cds, 0, next, 0, n);
+
+            while (hpLeft > 0) {
+                int time = turn - turnBegin;
+                for (int i = 0; i < n; i++) {
+                    if (next[i] <= time) {
+                        hpLeft -= dmgs[i];
+                        next[i] = time + cds[i];
+                    }
+                }
+                turn++;
+            }
+
+            System.out.println(turn);
         }
+    }
+
+    public static int lcm(int a, int b) {
+        int c = a;
+        int d = b;
+
+        while (b != 0) {
+            int mod = a % b;
+            a = b;
+            b = mod;
+        }
+
+        return c * d / a;
     }
 }
