@@ -82,7 +82,6 @@ public class FinalBoss {
                         next[i] = time + cds[i];
                     }
                 }
-
             }
 
             System.out.println(turn);
