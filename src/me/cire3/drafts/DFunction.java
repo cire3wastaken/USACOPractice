@@ -55,8 +55,7 @@ public class DFunction {
         return result;
     }
 
-    // FIXME
-    // slow as shit
+    // FIXME very very very slow
     public static String getResult(long l, long r, long maxDigit) {
         long modulus = (long) (Math.pow(10, 9) + 7);
         BigInteger result = BigInteger.ZERO;
